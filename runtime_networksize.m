@@ -47,7 +47,7 @@ for n=1:length(N)
         tic
         for s = 1:numepochs
             data = main_data(((s-1)*epoch)+1:(s*epoch),:);
-            [cMI_epoch(:,:,s),~]=CondMutInfo_altform(data,win,N(n),delay,cmiCalc);
+            [cMI_epoch(:,:,s),~]=CondMutInfo(data,win,N(n),delay,cmiCalc);
         end
         runtimecMIEWC(rep,n)=toc;
         %% TE EWC
