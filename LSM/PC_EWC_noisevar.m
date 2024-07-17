@@ -87,7 +87,7 @@ for p=1:length(sigma)
         P_std_epoch = zeros(N,N,numepochs);
         for s=1:numepochs
             data = main_data(((s-1)*epoch)+1:(s*epoch),:);
-            [P_epoch(:,:,s),~]=PearsonEWC(data,win,N,delay);  % Mean cMI over all significant events in target region
+            [P_epoch(:,:,s),~]=PearsonEWC(data,win,N,delay);
         end
         P_rep(:,:,rep)=mean(P_epoch,3);
         P_repstd(:,:,rep)=std(P_epoch,0,3);
