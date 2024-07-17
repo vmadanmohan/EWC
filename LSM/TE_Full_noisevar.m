@@ -4,6 +4,7 @@
 % -------------------------------(TE-Full)---------------------------------
 %% Parameter definitions
 clear java
+addpath("/path/to/EWC/functions")
 N = 4;              % Number of region
 Fs = 2035;        % Sampling frequency (Hz)
 ts = 1/Fs;          % Timestep (s)
@@ -112,9 +113,8 @@ legend('1 \rightarrow 2','2 \rightarrow 1','2 \rightarrow 3','3 \rightarrow 2','
 xlabel('Noise amplitude / Pulse amplitude')
 ylabel('Transfer Entropy (Full)')
 xlim([0.5,10])
-fontsize(gca,15,"points")
+fontsize(gca,18,"points")
 hold off
-% savefig('TE_full')
 contrastmeanTE=mean(contrastTE,2);
 contraststdTE=std(contrastTE,0,2);
 figure;
@@ -129,5 +129,4 @@ ylim([-0.1,2.15])
 hold off
 xlabel('Noise amplitude / Pulse amplitude')
 ylabel('Standardised contrast')
-fontsize(gca,15,"points")
-% savefig('contrast_TE_full')
+fontsize(gca,18,"points")
