@@ -24,7 +24,7 @@ source = [1,3];                 % Index of source region
 firing_rate = 0.1:0.05:1;          % Firing rate in Hz
 pulse_amp = 0.1;
 repeat = 10;
-javaaddpath("/Users/vmadanmohan/Documents/MATLAB/infodynamics-dist-1.6/infodynamics.jar");
+javaaddpath("/path/to/JIDT/infodynamics.jar");
 implementingClass = 'infodynamics.measures.continuous.gaussian.TransferEntropyCalculatorGaussian';
 teCalc = javaObject(implementingClass);
 
