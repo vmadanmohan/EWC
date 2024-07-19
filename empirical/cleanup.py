@@ -49,16 +49,16 @@ for sub in range(len(subs)):
     epoch = int(epoch_dur*sampling_rate)
     hemi = ['LLRLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLRRRRRRRRRLRRRRRRRRRRLRRRRRRRRRRLRRRRRRRRRRLRRRRRRRRRR']
     tic = perf_counter();
-    delay = np.loadtxt(f'{sub}_delayfile.txt',delimiter=',',dtype=int)
-    main_data = np.loadtxt(f'{sub}_restin3.csv',delimiter=',')
+    delay = np.loadtxt(f'{sub+1}_delayfile.txt',delimiter=',',dtype=int)
+    main_data = np.loadtxt(f'{sub+1}_resting.csv',delimiter=',')
     leakage_corr_ts = parcellation.symmetric_orthogonalise(main_data,maintain_magnitudes=True)
-    main_data = leakage_corr_ts.T
+    main_data = leakage_corr_ts.T		# Remove transpose operator if leakage_corr_ts is already in "Timestep x ROI" dimensions
     toc=perf_counter();
     print(f"file load time = {toc-tic} seconds")
     numepochs=int(main_data.shape[0]/epoch)
-    bad = np.loadtxt(f'{sys.argv[1]}_badseg.txt',delimiter=',')
+    bad = np.loadtxt(f'{sub+1}_badseg.txt',delimiter=',')
 	if bad.size==0:
 		bad = np.empty((1,2))
     main_data = delete_bad_segments(bad,main_data,numepochs)
     main_data = main_data[10*sampling_rate:-1-(10*sampling_rate)+1,:]  # Removing 10 seconds of data from the start and end to remove any transients from processing
-    savemat(f'{sub}_restin.mat',{'main_data':main_data})
+    savemat(f'{sub+1}_resting.mat',{'main_data':main_data})
