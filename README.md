@@ -8,8 +8,8 @@ Python packages used:
 
 Codes are organised into 3 directories: 
 
-```LSM``` - contains codes to model an simple network-motif with Linear stochastic model dynamics, and Poisson firing sources. Corresponds to the section "Asymmetric signalling over a network motif".
+```LSM/``` - contains codes to model an simple network-motif with Linear stochastic model dynamics, and Poisson firing sources. Corresponds to the section "Asymmetric signalling over a network motif".
 
-```Empirical``` - contains codes to gauge computational tractability, and empirical results. Corresponds to sections "Computational tractability of the EWC protocol" and "Inferring whole-brain interaction patterns from MEG recordings"
+```empirical/``` - contains codes to gauge computational tractability, and empirical results. Corresponds to sections "Computational tractability of the EWC protocol" and "Inferring whole-brain interaction patterns from MEG recordings"
 
-```functions``` - contains all the functions used in the codes. Ensure that the path to this directory is included in all codes.
+```functions/``` - contains all the functions used in the codes. Ensure that the path to this directory is included in all codes.
