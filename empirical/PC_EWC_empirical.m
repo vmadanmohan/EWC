@@ -3,10 +3,7 @@ N = 100;              % Number of regions
 Fs = 2035;        % Sampling frequency (Hz)
 subjects = 30;
 P_mean=zeros(N,N,subjects);
-P_mean_epochlevelstd=zeros(N,N,subjects);
 P_mean_subjectlevelstd=zeros(N,N,subjects);
-symmetry_epochlevel=[];
-symmetry_subjectlevel=zeros(subjects,1);
 numepochs=zeros(subjects,1);
 parfor sub=1:subjects
     sub
