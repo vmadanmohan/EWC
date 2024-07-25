@@ -9,7 +9,6 @@ TE_mean=zeros(N,N,subjects);
 TE_mean_subjectlevelstd=zeros(N,N,subjects);
 numepochs=zeros(subjects,1);
 parfor sub=1:subjects
-    sub
     recording=load(sprintf("/path/to/%d_resting.mat",sub));
     main_data=recording.main_data;
     mapping=load('mapping.txt');
