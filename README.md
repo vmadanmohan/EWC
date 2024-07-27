@@ -6,9 +6,6 @@ MATLAB version: R2022b \\
 Python packages used:
 ```numpy, scipy, osl, pandas```
 
-Here is a schematic of the EWC pipeline:
-[fig2.pdf](https://github.com/user-attachments/files/16399156/fig2.pdf)
-
 Codes are organised into 3 directories: 
 
 ```LSM/``` - contains codes to model an simple network-motif with Linear stochastic model dynamics, and Poisson firing sources. Corresponds to the section "Asymmetric signalling over a network motif".
