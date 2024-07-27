@@ -2,9 +2,12 @@
 This repo contains the codes used in carrying out the analyses in "Event-marked Windowed Communication: Inferring activity propagation patterns from neural time series". The Event-marked Windowed Communication (EWC) is an implementation to gauge directed interactions from regional time-series, which can then be used to infer communication between the regions. The EWC can, in principle, be estimated using any symmetric measure of statistical dependence - We use Partial Correlation (PC), Conditional Mutual Information (cMI), and bivariate Transfer Entropy (TE). 
 cMI and TE were estimated using the [Java Information Dynamics Toolkit (JIDT)](jlizier.github.io/jidt/).
 
-MATLAB version: R2022b
+MATLAB version: R2022b \\
 Python packages used:
 ```numpy, scipy, osl, pandas```
+
+Here is a schematic of the EWC pipeline:
+[fig2.pdf](https://github.com/user-attachments/files/16399156/fig2.pdf)
 
 Codes are organised into 3 directories: 
 
