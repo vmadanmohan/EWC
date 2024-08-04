@@ -2,7 +2,7 @@ function [P,P_std] = PearsonEWC(data,win,N,delay)
     thresh=3;           % Z-score threshold
     P = zeros(N,N);
     P_std = zeros(N,N);
-    sigevents = abs(zscore(data))>=thresh;
+    sigevents = abs(zscore(data))>=thresh;        % Event identification = z-scoring and thresholding
     sigevents(1:win,:)=0;                       % Remove sig. events 1 window at start of data (to make room for the self-conditioning window)
     sigevents(end-win-max(max(delay,[],'omitnan')):end,:)=0; % Remove sig. events 1 window + max(delay) at the end of the data, to make room for windows and to avoid computations corrupted by the zero padding
     for i=1:size(sigevents,2)                   % Remove additional significant events that fall inside a window
