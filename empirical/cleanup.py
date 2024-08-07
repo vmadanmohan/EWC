@@ -4,6 +4,21 @@ import scipy as sci
 from osl.source_recon import parcellation
 from scipy.io import savemat
 
+def rrestruct(mat,mapping):
+    rowrestruct = np.zeros([mat.shape[0],mat.shape[1]])
+    for i in range(len(mapping)):
+        rowrestruct[mapping[i]-1,:]=mat[i,:]
+    return rowrestruct
+
+def matrestruct(mat,mapping):
+    rowrestruct = np.zeros([mat.shape[0],mat.shape[1]])
+    colrestruct = np.zeros([mat.shape[0],mat.shape[1]])
+    for i in range(len(mapping)):
+        rowrestruct[mapping[i]-1,:]=mat[i,:]
+    for i in range(len(mapping)):
+        colrestruct[:,mapping[i]-1]=rowrestruct[:,i]
+    return colrestruct
+
 def delete_bad_segments(bad,data,numepochs):
     epoch_markers = [s*epoch for s in range(numepochs+1)]
     if len(bad.shape)==2:
@@ -44,13 +59,13 @@ sub_IDs = open("subIDs.txt", "r")
 data = sub_IDs.read() 
 subs = data.split("\n") 
 sub_IDs.close()
+mapping = np.loadtxt('mapping.txt',dtype=int)
 
 for sub in range(len(subs)):
     epoch = int(epoch_dur*sampling_rate)
-    hemi = ['LLRLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLRRRRRRRRRLRRRRRRRRRRLRRRRRRRRRRLRRRRRRRRRRLRRRRRRRRRR']
     tic = perf_counter();
-    delay = np.loadtxt(f'{sub+1}_delayfile.txt',delimiter=',',dtype=int)
-    main_data = np.loadtxt(f'{sub+1}_resting.csv',delimiter=',')
+    delay = matrestruct(np.loadtxt(f'{sub+1}_delayfile.txt',delimiter=',',dtype=int),mapping)
+    main_data = rrestruct(np.loadtxt(f'{sub+1}_resting.csv',delimiter=','),mapping)
     leakage_corr_ts = parcellation.symmetric_orthogonalise(main_data,maintain_magnitudes=True)
     main_data = leakage_corr_ts.T		# Remove transpose operator if leakage_corr_ts is already in "Timestep x ROI" dimensions
     toc=perf_counter();
@@ -61,4 +76,4 @@ for sub in range(len(subs)):
 		bad = np.empty((1,2))
     main_data = delete_bad_segments(bad,main_data,numepochs)
     main_data = main_data[10*sampling_rate:-1-(10*sampling_rate)+1,:]  # Removing 10 seconds of data from the start and end to remove any transients from processing
-    savemat(f'{sub+1}_resting.mat',{'main_data':main_data})
+    savemat(f'{sub+1}_resting.mat',{'main_data':main_data,'delay':delay})
