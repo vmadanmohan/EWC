@@ -73,7 +73,7 @@ for sub in range(len(subs)):
     numepochs=int(main_data.shape[0]/epoch)
     bad = np.loadtxt(f'{sub+1}_badseg.txt',delimiter=',')
     if bad.size==0:
-	    bad = np.empty((1,2))
+		bad = np.empty((1,2))
     main_data = delete_bad_segments(bad,main_data,numepochs)
     main_data = main_data[10*sampling_rate:-1-(10*sampling_rate)+1,:]  # Removing 10 seconds of data from the start and end to remove any transients from processing
     savemat(f'{sub+1}_resting.mat',{'main_data':main_data,'delay':delay})
