@@ -9,8 +9,7 @@ parfor sub=1:subjects
     sub
     recording=load(sprintf("/path/to/%d_resting.mat",sub));
     main_data=recording.main_data;
-    mapping=load('mapping.txt');
-    delay=load(sprintf("/path/to/%d_delayfile.txt",sub));
+    delay=recording.delay;
     epoch = 10*Fs;              % 10 second epochs
     win = 1*Fs;                  % 1 second window
     numepochs(sub)=floor(size(main_data,1)/epoch);
@@ -20,6 +19,6 @@ parfor sub=1:subjects
         data = main_data(((s-1)*epoch)+1:(s*epoch),:);
         [P(:,:,s),P_std(:,:,s)]=PearsonEWC(data,win,N,delay);
     end
-    P_mean(:,:,sub)=matrestruct(mean(P,3),mapping);
-    P_mean_subjectlevelstd(:,:,sub)=matrestruct(std(P,0,3),mapping);
+    P_mean(:,:,sub)=mean(P,3);
+    P_mean_subjectlevelstd(:,:,sub)=std(P,0,3);
 end
