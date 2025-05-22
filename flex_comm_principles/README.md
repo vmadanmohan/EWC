@@ -8,3 +8,5 @@ Sub-directory descriptions:
 ```cyclic_surr/``` contains scripts that carry out similar estimations as in ```observed/```, but for cyclically permuted surrogates
 
 ```surr_correction.m``` compares the observed and surrogate results, performs a surrogate-derived false discovery rate corrected significance threshold on the results
+
+```eventiden.m``` finds the timepoints of significant "communication events", and is used for the estimation of EWC and neural oscillatory measures in both observed and surrogate analyses.
