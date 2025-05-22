@@ -3,7 +3,7 @@ This directory contains scripts used in "Assessment of oscillatory mechanisms un
 
 Sub-directory descriptions:
 
-```observed/``` contains scripts to estimate the correlation between communication inferred using EWC and target power/PLV.
+```observed/``` contains scripts to estimate the correlation between communication inferred using EWC and target power/PLV. (Note: Intersite Phase Clustering (ISPC) which is used in the main text, is an alternative term for the Phase Locking Value (PLV)).
 
 ```cyclic_surr/``` contains scripts that carry out similar estimations as in ```observed/```, but for cyclically permuted surrogates
 
