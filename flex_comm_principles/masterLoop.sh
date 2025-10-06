@@ -11,7 +11,9 @@ if [ "$download_packages" == "y" ]; then
     mkdir -p funcs
     # Download package from GitHub
     git clone https://github.com/faskowit/parc_plotter.git funcs/parc_plotter
-
+    # setup parc_plotter annotations
+    matlab -nodisplay -nosplash -r "funcs/parc_plotter/setup_data"
+    
     # Download BCT
     FILE_ID="1DmMvRnferBfGe057O-sZwB5jL4j8w1Hu"
     FILE_NAME="BCT.zip"
