@@ -5,7 +5,9 @@ This directory contains scripts used in "Assessment of oscillatory mechanisms un
 
 #### Software / packages
 ```MATLAB2022b``` with the [Signal Processing Toolbox](https://au.mathworks.com/products/signal.html) for spectral analyses.
+
 [Brain Connectivity Toolbox](https://sites.google.com/site/bctnet/home) - contains function ```threshold_proportional.m``` used to threshold the structural connectivity matrix.
+
 [parc_plotter](https://github.com/faskowit/parc_plotter) - used in ```visualise.m``` to project correlation coefficients onto the cortical surface to visualise heterogeneous neural oscillatory dependence.
 
 #### Data
