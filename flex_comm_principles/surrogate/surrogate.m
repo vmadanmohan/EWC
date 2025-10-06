@@ -58,4 +58,4 @@ for i=1:N
     comm_principle_mean_surr(i,10)=corr(reshape(squeeze(P(i,find(SC(i,:)),:)),[],1),reshape(squeeze(PLV_gammahi(i,find(SC(i,:)),:)),[],1));
 end
 comm_principle_mean_surr(isnan(comm_principle_mean_surr))=0;
-save(sprintf("/path/to/surrogate/output/%d/%d_results_surr",sub,surr),"comm_principle_mean_surr")
+save(sprintf("surrogate_results/%d/%d_results_surr",sub,surr),"comm_principle_mean_surr")
