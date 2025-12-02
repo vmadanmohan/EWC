@@ -1,5 +1,5 @@
 # Principles of flexible neural communication
-This directory contains scripts used in "Assessment of oscillatory mechanisms underlying flexible neural communication in the human brain" 2025 by Varun Madan Mohan, Thomas F Varley, Robin F H Cash, Caio Seguin, and Andrew Zalesky.
+This directory contains scripts used in "Evaluating oscillatory mechanisms underlying flexible neural communication in the human brain" 2025 by Varun Madan Mohan, Thomas F Varley, Anthony M Harris, Robin F H Cash, Caio Seguin, and Andrew Zalesky.
 
 ### Pre-requisites
 
